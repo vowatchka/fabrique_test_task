@@ -1,10 +1,5 @@
 # fabrique_test_task
 
-Тестовое задание – дополнительный способ для нас убедиться в вашей квалификации и понять, какого рода задачи вы выполняете эффективнее всего.
-Расчётное время на выполнение тестового задания: 3-4 часа, время засекается нестрого. Приступить к выполнению тестового задания можно в любое удобное для вас время.
-
-У текущего тестового задания есть только общее описание требований, конкретные детали реализации остаются на усмотрение разработчика.
-
 Задача: спроектировать и разработать API для системы опросов пользователей.
 
 Функционал для администратора системы:
@@ -26,17 +21,49 @@
 - инструкция по разворачиванию приложения (в docker или локально)
 - документация по API
 
-
-! Время - нестрогое, как выполните - отправляйте. 
-
 # Установка
+1. Клонируем репозиторий
+    ```
+    git clone https://github.com/vowatchka/fabrique_test_task.git
+    cd fabrique_test_task
+    ```
+2. Создаем и активируем виртуальное окружение
+    * Unix/macOS
+    ```
+    python -m venv env
+    source env/bin/activate
+    ```
+    * Windows
+    ```
+    python -m venv env
+    env\Scripts\activate
+    ```
+3. Ставим зависимости
+    ```
+    python -m pip install --upgrade -r requirements.txt
+    ```
+4. Создаем миграции и супер пользователя
+    ```
+    python manage.py migrate
+    python manage.py createsuperuser
+    ```
+5. Запускаем сервер
+    ```
+    python manage.py runserver
+    ```
+6. Перейти в браузере по адресу http://127.0.0.1:8000/
 
-git clone <repo>
-cd fabrique_test_task
-python -m venv <env>
-; activate <env>
-python -m pip install --upgrade -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser --username <username>
-python manage.py runserver
+# Использование
+Функционал для администраторов:
+1. Создавать опросы, вопросы и варианты ответов можно через админку Django
+2. Создавать опросы, вопросы и варианты ответов можно через методы API
+
+Функционал для пользователей:
+1. Отвечать на опросы и просматривать статистику можно через API
+
+# Документация API
+Документация доступна по адресу http://127.0.0.1:8000/swagger/
+
+# База данных
+База данных: sqlite3
+![scheme](http://dl3.joxi.net/drive/2021/10/17/0012/1225/795849/49/741c1fd2b4.png)
