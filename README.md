@@ -38,7 +38,7 @@
     python -m venv env
     env\Scripts\activate
     ```
-3. Ставим зависимости
+3. Ставим зависимости. У меня, например, все зависимости ставятся немного долго, поэтому придется подождать, если что.
     ```
     python -m pip install --upgrade -r requirements.txt
     ```
